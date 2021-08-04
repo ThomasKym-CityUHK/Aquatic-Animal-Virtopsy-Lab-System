@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="config/header_forTesting.js"></script>
+</head>
+<style>
+</style>
+<body>
+    <div class="main-content map-view " id="main-content">
+      <div class="leaflet map fullscreen" id="map-view"></div>
+      <div class="ui segment side" id="map-view-side-content">
+        <div class="sidecontent tablesearch" id="map-view-table-search">
+          <div class="ui search">
+            <div class="ui icon fluid input">
+              <input class="prompt" type="text" placeholder="Search...">
+              <i class="search icon"></i>
+            </div>
+            <div class="results"></div>
+          </div>
+            
+            <div class="ui hori list" id="map-view-search-toggle-button-list">
+              <!--<button class="tiny ui icon button floated abs left"><i class="icon angle left"></i></button>
+              <button class="tiny ui icon button floated abs right"><i class="icon angle right"></i></button>-->
+              <div id="map-toggle-button-list">
+                <div class="ui tiny toggle orange button">Boat Activities</div>
+                <div class="ui tiny toggle teal button">Marine Mammals</div>
+              </div>
+            </div>
+            
+        </div>
+        <div class="sidecontent tablelist" id="map-view-table-list">
+          <div class="ui list">
+            <div class="item">
+              <div class="ui fluid teal raised link card" >
+                <div class="content">
+                  <div class="header">NP21-2806</div>
+                  <div class="meta"><span class="category">Marine Mammal</span></div>
+                </div>
+                <div class="extra content">
+                  <span class="left floated"><i class="calendar alternate outline icon"></i>2021/06/28</span>
+                  <span class="right floated" onclick=""><a class="link"><i class="book icon"></i>Detail</a></span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="item">
+              <div class="ui fluid teal raised link card" >
+                <div class="content">
+                  <div class="header">NP21-0604</div>
+                  <div class="meta"><span class="category">Marine Mammal</span></div>
+                </div>
+                <div class="extra content">
+                  <span class="left floated"><i class="calendar alternate outline icon"></i>2021/04/06</span>
+                  <span class="right floated" onclick=""><a class="link"><i class="book icon"></i>Detail</a></span>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="ui fluid teal raised link card" >
+                <div class="content">
+                  <div class="header">NP21-1502</div>
+                  <div class="meta"><span class="category">Marine Mammal</span></div>
+                </div>
+                <div class="extra content">
+                  <span class="left floated"><i class="calendar alternate outline icon"></i>2021/02/15</span>
+                  <span class="right floated" onclick=""><a class="link"><i class="book icon"></i>Detail</a></span>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="ui fluid teal raised link card" >
+                <div class="content">
+                  <div class="header">NP21-3004</div>
+                  <div class="meta"><span class="category">Marine Mammal</span></div>
+                </div>
+                <div class="extra content">
+                  <span class="left floated"><i class="calendar alternate outline icon"></i>2021/04/30</span>
+                  <span class="right floated" onclick=""><a class="link"><i class="book icon"></i>Detail</a></span>
+                </div>
+              </div>
+            </div>
+            <!--<div class="item">
+              <div class="ui fluid orange raised link card" >
+                <div class="content">
+                  <div class="header">Shipping </div>
+                  <div class="meta"><span class="category">Boat Record</span></div>
+                </div>
+                <div class="extra content">
+                  <span class="left floated"><i class="calendar alternate outline icon"></i>2021/06/28</span>
+                  <span class="right floated" onclick=""><a class="link"><i class="book icon"></i>Detail</a></span>
+                </div>
+              </div>
+            </div>-->
+            
+          </div>
+          <div class="ui center aligned"><span>Not More Records</span></div>
+        </div>
+      </div>
+    </div>
+</body>
+<script>
+  MenuCtrl._ini(sampleUserData);
+  MapCtrl._ini({id:"map-view",events:[
+    { action:"onMoveEnd",func:function(){ console.log("moveend");var map = maps["map-view"].map;console.log(map.getBounds());}},
+    { action:"onResize",func:function(){ console.log("resize");var map = maps["map-view"].map;console.log(map.getBounds());}},
+    //{ action:"onZoomEnd",func:function(){ console.log("zoomend");var map = maps["map-view"].map;console.log(map.getBounds());}}
+  ]});
+  var currentMap = maps["map-view"].map;
+  
+  var mmg = maps["map-view"].group.MarineMammal;
+  var bag = maps["map-view"].group.BoatActivity;
+
+  var mapPara = { 
+        id:"map-view",lati:22.285307,long:114.123331,type:"MarineMammal",
+        params:{ id:"Testing01"},events:[
+          {action:"click",func:function(e){
+            console.log(e);
+            console.log(this);
+            console.log("---------------------");
+          }}
+        ]
+      };
+  var marker = MapCtrl.mapFunction.addMarker(mapPara);
+      mmg.addLayer(marker);
+
+      mapPara = { id:"map-view",lati:22.326994,long:114.090084,type:"MarineMammal"};
+      marker = MapCtrl.mapFunction.addMarker(mapPara);
+      mmg.addLayer(marker);
+
+      mapPara = { id:"map-view",lati:22.317818,long:114.135610,type:"MarineMammal"};
+      marker = MapCtrl.mapFunction.addMarker(mapPara);
+      mmg.addLayer(marker);
+
+      mapPara = { id:"map-view",lati:22.354266,long:114.066035,type:"MarineMammal"};
+      marker = MapCtrl.mapFunction.addMarker(mapPara);
+      mmg.addLayer(marker);
+
+      currentMap.addLayer(mmg);
+
+      mapPara = { id:"map-view",lati:22.354266,long:114.066435,type:"BoatActivity"};
+      marker = MapCtrl.mapFunction.addMarker(mapPara);
+      bag.addLayer(marker);
+
+      mapPara = { id:"map-view",lati:22.454266,long:114.066435,type:"BoatActivity"};
+      marker = MapCtrl.mapFunction.addMarker(mapPara);
+      bag.addLayer(marker);
+
+      mapPara = { id:"map-view",lati:22.334266,long:114.066435,type:"BoatActivity"};
+      marker = MapCtrl.mapFunction.addMarker(mapPara);
+      bag.addLayer(marker);
+
+      currentMap.addLayer(bag);
+
+</script>
+</html>

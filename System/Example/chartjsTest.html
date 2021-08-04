@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="config/header_forTesting.js"></script>
+</head>
+
+<body>
+    <div class="pusher">
+        <div class="main-content">
+            <div class="ui grid padded">
+                <h1><i class="home icon"></i> Dashboard</h1>
+                <div class="ui mini right floated">
+                    <button class="ui teal tiny button" id="editbtn">Edit</button>
+                    <button class="ui primary tiny button" id="addbtn">Add New</button>
+                </div>
+            </div>
+            
+            <div class="ui grid padded center aligned grid">
+                <div class="four wide computer eight wide tablet sixteen wide mobile column">
+                    <div class="ui large red statistic">
+                        <div class="value">204</div>
+                        <div class="label">Total Cases</div>
+                    </div>
+                </div><div class="four wide computer eight wide tablet sixteen wide mobile column">
+                    <div class="ui large yellow statistic">
+                        <div class="value">5,122</div>
+                        <div class="label">Photos</div>
+                    </div>
+                </div><div class="four wide computer eight wide tablet sixteen wide mobile column">
+                    <div class="ui large teal statistic">
+                        <div class="value">1,468</div>
+                        <div class="label">Views</div>
+                    </div>
+                </div><div class="four wide computer eight wide tablet sixteen wide mobile column">
+                    <div class="ui large violet statistic">
+                        <div class="value">2,204</div>
+                        <div class="label">Testing</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui grid padded center aligned grid">
+                <div class="four wide computer eight wide tablet sixteen wide mobile column">
+                    <div class="ui card red centered">
+                        <div class="content">
+                            <div class="ui large red statistic">
+                                <div class="value">204</div>
+                                <div class="label">Total Cases</div>
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            <button class="ui red tiny button" id="addbtn">More Detail</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="four wide computer eight wide tablet sixteen wide mobile column">
+                    <div class="ui card yellow centered">
+                        <div class="content">
+                            <div class="ui large yellow statistic">
+                                <div class="value">204</div>
+                                <div class="label">Total Cases</div>
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            <button class="ui yellow tiny button" id="addbtn">More Detail</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="four wide computer eight wide tablet sixteen wide mobile column">
+                    <div class="ui card teal centered">
+                        <div class="content">
+                            <div class="ui large teal statistic">
+                                <div class="value">204</div>
+                                <div class="label">Total Cases</div>
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            <button class="ui teal tiny button" id="addbtn">More Detail</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="four wide computer eight wide tablet sixteen wide mobile column">
+                    <div class="ui card violet centered">
+                        <div class="content">
+                            <div class="ui large violet statistic">
+                                <div class="value">204</div>
+                                <div class="label">Total Cases</div>
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            <button class="ui violet tiny button" id="addbtn">More Detail</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui grid padded">
+                <div class="eight wide computer eight wide tablet sixteen wide mobile column">
+                    <div class="ui text menu">
+                        <h3 class="ui item header">Example Chart</h3>
+                        <div class="ui item mini right">
+                            <div class="ui dropdown item chartFilter">
+                                <i class="filter icon"></i>Filter
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui divider"></div>
+                    <div class="ui padded segment">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+                <div class="eight wide computer eight wide tablet sixteen wide mobile column">
+                    <div class="ui text menu">
+                        <h3 class="ui item header">Example Chart</h3>
+                        <div class="ui item mini right">
+                            <div class="ui dropdown item chartFilter">
+                                <i class="filter icon"></i>Filter
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui divider"></div>
+                    <div class="ui padded segment">
+                        <canvas id="myChart02"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ui grid padded">
+                <div class="sixteen wide computer sixteen wide tablet sixteen wide mobile column">
+                    <div class="ui text menu">
+                        <h3 class="ui item header">Example Chart</h3>
+                        <div class="ui item mini right">
+                            <div class="ui dropdown item chartFilter">
+                                <i class="filter icon"></i>Filter
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui divider"></div>
+                    <div class="ui padded segment">
+                        <canvas id="myChart03"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<script>  
+    var testdata = {
+            datasets: [
+                    {
+                    label:"F",type: 'bar',
+                    data: [10, 20, undefined,undefined,undefined,undefined],
+                    backgroundColor:'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)'
+                },{
+                    label:"M",type: 'bar',
+                    data: [20, 10, undefined,undefined,undefined,undefined],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)'
+                    
+                },{
+                    label:"TBC",type: 'bar',
+                    data: [50, 30, undefined,undefined,undefined,undefined,],
+                    backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                    borderColor: 'rgba(255, 206, 86, 1)'
+                }, {
+                    label:"Count",type: 'bar',
+                    data: [undefined, undefined, 80,undefined,undefined,undefined],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)'
+                    
+                }, {
+                    label: 'Total Count',type: 'bar',
+                    data: ["30", "42", "12"],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)'
+                }
+            ],
+            labels: ['NP', 'SC', 'OT',"Test","Main","XYZ"]
+        }
+
+    var testOptions = {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    },
+                    gridLines:{
+                        display:true
+                    }
+                }],
+                xAxes:[{
+                    gridLines:{
+                        display:true
+                    }
+                }]
+            },
+            maintainAspectRatio: false,
+            aspectRatio:0.8
+        };
+    $(".dropdown").dropdown();
+    var ctx = 'myChart';
+    var myChart = new Chart(ctx, {
+        //type: 'bar',
+        data: testdata,
+        options: testOptions
+    });
+    var ctx = 'myChart02';
+    var myChart02 = new Chart(ctx, {
+        type: 'bar',
+        data: testdata,
+        options: testOptions
+    });
+    
+    var ctx = 'myChart03';
+    var myChart02 = new Chart(ctx, {
+        type: 'bar',
+        data: testdata,
+        options: testOptions
+    });
+</script>
+
+</html>

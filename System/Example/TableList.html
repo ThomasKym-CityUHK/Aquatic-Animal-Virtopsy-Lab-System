@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="config/header_forTesting.js"></script>
+</head>
+<style>
+</style>
+<body>
+  <div id="TargetTableList"></div>
+</body>
+<script>
+  var tableListConfigs = {
+    id:"TestingTable",elm:$("#TargetTableList"),
+    configs:{
+      data:[
+        {columnA:"ValueA1",columnB:"ValueB1",columnC:"ValueC1"},
+        {columnA:"ValueA2",columnB:"ValueB2",columnC:"ValueC2"},
+        {columnA:"ValueA3",columnB:"ValueB3",columnC:"ValueC3"},
+        {columnA:"ValueA4",columnB:"ValueB4",columnC:"ValueC4"},
+        {columnA:"ValueA5",columnB:"ValueB5",columnC:"ValueC5"},
+        {columnA:"ValueA6",columnB:"ValueB6",columnC:"ValueC6"}
+      ],
+      columns:[
+        {data:"columnA",title:"columnA"},
+        {data:"columnB",title:"columnB"},
+        {data:"columnC",title:"columnC"}
+      ]
+    }
+  };
+  var newTableList = TableCtrl._ini(tableListConfigs);
+</script>
+</html>

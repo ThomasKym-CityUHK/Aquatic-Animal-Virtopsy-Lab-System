@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="config/header_forTesting.js"></script>
+</head>
+
+<body>
+  <div id="body_main">
+    <div class="main-content" id="main-content">
+        <div class="ui basic segment">
+            <div class="sixteen wide column">
+                <h1 class="ui dividing header">Dashboard</h1>
+                <div class="ui teal tiny button " id="editbtn" onclick="DashboardCtrl.EventListener.UI.edit()">Edit</div>
+                <div class="ui primary tiny button hiding" id="savebtn" onclick="DashboardCtrl.EventListener.UI.save()">Save</div>
+                <div class="ui secondary tiny button hiding" id="cancelbtn" onclick="DashboardCtrl.EventListener.UI.cancel()">Cancle</div>
+            </div>
+        </div>
+        <div class="ui basic segment" id="DashboardItemList">
+          <div class="ui grid componentRow" id="row_0">
+            <div class="eight wide computer eight wide table sixteen wide mobile column"  id="12313212132">
+              <div class="ui fluid red card center aligned">
+                <div class="content">
+                    <div class="ui red small statistic">
+                        <div class="value">${val}</div><div class="label">${title}</div>
+                    </div>
+                </div>
+                <div class="extra"><button class="ui red tiny button" onclick="ChartCtrl.EventListener.stat.showDetail('${id}')">More Detail</button></div>
+              </div>
+            </div>
+            <div class="eight wide computer eight wide table sixteen wide mobile column"  id="94036200015">
+              <div class="ui fluid card">
+                  <div class="extra">
+                      <div class="left floated"><span class="ui medium black text">Title</span></div>
+                      <div class="right floated"><i class="trash icon"></i><i class="ellipsis vertical icon"></i></div>
+                  </div>
+                  <div class="content"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</body>
+<script>
+  MenuCtrl._ini(sampleUserData);
+  //$(".modal .content").html(DashboardEditorUI.ComponentDataEditor.UIComponent.Components.DataSelector({type:"main",id:"0"}));
+  //$(".modal").modal("show");$(".ui.accordion").accordion();$(`.dropdown`).dropdown();$(`.checkbox`).checkbox();
+  //$('.ComponentMainDataList .cards .card').tab({context : '.ComponentMainFormList'})
+  //console.log(marineObj.getAttributesListArray());
+  //DashboardEditorCtrl.ComponentSeletor._ini();
+
+
+  //_GB_DASHBOARD_EDITOR_VARS.TYPE = "lb";
+  //_GB_DASHBOARD_EDITOR_VARS.TYPE = "stat";
+  //DashboardEditorCtrl.ComponentEditor._ini();
+  //DashboardEditorCtrl.ComponentDataEditor._ini();
+  //console.log(NormalType.getAttributesListArray());
+
+  //DashboardCtrl._ini();
+
+</script>
+</html>

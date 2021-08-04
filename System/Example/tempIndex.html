@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="config/header.js"></script>
+</head>
+
+<body>
+    <div class="pusher">
+        <div class="main-content" id="main-content">
+            <div class="ui grid padded nondraggable" id="headTitle">
+                <h1><i class="home icon"></i> Dashboard</h1>
+                <div class="ui mini right floated">
+                    <button class="ui teal tiny button" id="editbtn" onclick='dashboardUI.UIEdit()'>Edit</button>
+                    <button class="ui hiding primary tiny button" id="savebtn" onclick='dashboardUI.UISave()'>Save</button>
+                    <button class="ui hiding secondary tiny button" id="cancelbtn" onclick='dashboardUI.UICancel()'>Cancle</button>
+                </div>
+            </div>
+            <div class="ui grid draggable center aligned">
+                <div class="four wide computer eight wide tablet sixteen wide mobile column">
+                    <div class="ui large red statistic">
+                        <div class="value">204</div>
+                        <div class="label">Total Cases</div>
+                    </div>
+                </div><div class="four wide computer eight wide tablet sixteen wide mobile column">
+                    <div class="ui large yellow statistic">
+                        <div class="value">5,122</div>
+                        <div class="label">Photos</div>
+                    </div>
+                </div><div class="four wide computer eight wide tablet sixteen wide mobile column">
+                    <div class="ui large teal statistic">
+                        <div class="value">1,468</div>
+                        <div class="label">Views</div>
+                    </div>
+                </div><div class="four wide computer eight wide tablet sixteen wide mobile column">
+                    <div class="ui large violet statistic">
+                        <div class="value">2,204</div>
+                        <div class="label">Testing</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui grid draggable center aligned">
+                <div class="four wide computer eight wide tablet sixteen wide mobile column">
+                    <div class="ui card red centered">
+                        <div class="content">
+                            <div class="ui large red statistic">
+                                <div class="value">204</div>
+                                <div class="label">Total Cases</div>
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            <button class="ui red tiny button" id="addbtn">More Detail</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="four wide computer eight wide tablet sixteen wide mobile column">
+                    <div class="ui card yellow centered">
+                        <div class="content">
+                            <div class="ui large yellow statistic">
+                                <div class="value">204</div>
+                                <div class="label">Total Cases</div>
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            <button class="ui yellow tiny button" id="addbtn">More Detail</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="four wide computer eight wide tablet sixteen wide mobile column">
+                    <div class="ui card teal centered">
+                        <div class="content">
+                            <div class="ui large teal statistic">
+                                <div class="value">204</div>
+                                <div class="label">Total Cases</div>
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            <button class="ui teal tiny button" id="addbtn">More Detail</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="four wide computer eight wide tablet sixteen wide mobile column">
+                    <div class="ui card violet centered">
+                        <div class="content">
+                            <div class="ui large violet statistic">
+                                <div class="value">204</div>
+                                <div class="label">Total Cases</div>
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            <button class="ui violet tiny button" id="addbtn">More Detail</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui grid draggable center aligned">
+                <div class="eight wide computer eight wide tablet sixteen wide mobile column">
+                    <div class="ui text menu">
+                        <h3 class="ui item header">Example Chart</h3>
+                        <div class="ui item mini right">
+                            <div class="ui dropdown item chartFilter">
+                                <i class="filter icon"></i>Filter
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui divider"></div>
+                    <div class="ui padded segment">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+                <div class="eight wide computer eight wide tablet sixteen wide mobile column">
+                    <div class="ui text menu">
+                        <h3 class="ui item header">Example Chart</h3>
+                        <div class="ui item mini right">
+                            <div class="ui dropdown item chartFilter">
+                                <i class="filter icon"></i>Filter
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui divider"></div>
+                    <div class="ui padded segment">
+                        <canvas id="myChart02"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="ui fullscreen modal">
+        <div class="ui header">Data Set<div class="sub header"> </div></div>
+        <div class="ui padded pusher contents grid">
+            <div class="sixteen wide computer sixteen wide tablet sixteen wide mobile column scrolling content ui">
+                <div class="ui list">
+                    <div class="ui segment">
+                        <div class="ui form">
+                            
+                            <div class="field">
+                                <label>Main Data</label>
+                                <div class="ui fluid selection dropdown search" id="dbColumns-01">
+                                    <div class="default text">Select Data Attribute</div>
+                                    <i class="dropdown icon"></i>
+                                    <div class="menu"></div>
+                                </div>
+                            </div>
+                            <div class="inline fields">
+                                <label for="pTypeMain">Select Present Method of Dataset:</label>
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input type="radio" name="pTypeMain" value="cnt" checked="" tabindex="0" class="hidden">
+                                        <label>Count</label>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input type="radio" name="pTypeMain" value="max" tabindex="0" class="hidden">
+                                        <label>Maximum</label>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input type="radio" name="pTypeMain" value="min" tabindex="0" class="hidden">
+                                        <label>Minimum</label>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input type="radio" name="pTypeMain" value="avg" tabindex="0" class="hidden">
+                                        <label>Average</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label>Data sets</label>
+                                <div class="ui fluid multiple search selection dropdown" id="dataset-selection-01">
+                                    <input name="dataset" type="hidden">
+                                    <div class="default text">Empty if select all sets</div>
+                                    <div class="menu">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui divider"></div>
+                            <div class="field">
+                                <label>Rules</label>
+                                <div class="ui segment">
+                                    <div class="fields">
+                                        <div class="four wide field">
+                                            <label>Rules Data</label>
+                                            <div class="ui fluid search selection dropdown" id="dbColumns-02" tabindex="0">
+                                                <input name="rulesAttr" type="hidden">
+                                                <i class="dropdown icon"></i>
+                                                <span class="text">Select target rules data</span>
+                                                <div class="menu hidden transition"></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="two wide field">
+                                            <label>Operator</label>
+                                            <select class="ui fluid dropdown" name="operator">
+                                                <option value=">">Larges</option>
+                                                <option value=">=">Larges or Equals</option>
+                                                <option value="<">Less</option>
+                                                <option value="<=">Less or Equals</option>
+                                                <option value="=">Equals</option>
+                                                <option value="!=">Not Equals</option>
+                                                <option value="BETWEEN">Between</option>
+                                                <option value="NOT BETWEEN">Not Between</option>
+                                                <option value="LIKE">Like</option>
+                                                <option value="NOT LIKE">Not Like</option>
+                                                <option value="In">In</option>
+                                            </select>
+                                        </div>
+                                        <div class="eight wide field">
+                                            <label>Parameter</label>
+                                            <input type="text" name="parameter[]" placeholder="Enter the target characters">
+                                        </div>
+                                        <div class="two wide field">
+                                            <label>Action</label>
+                                            <div class="ui positive button fluid">Add</div>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <div class="ui divided selection list">
+                                            <a class=" item">
+                                                <i class="close icon middle aligned"></i>
+                                                <div class="content">
+                                                    <div class="ui teal label">
+                                                        Selected Data Attribute 
+                                                    </div>
+                                                    <div class="ui orange label">
+                                                        Between 
+                                                    </div>
+                                                    
+                                                    <div class="ui primary label">
+                                                        A parameter  
+                                                    </div>
+                                                    <div class="ui orange label">
+                                                        and 
+                                                    </div>
+                                                    <div class="ui primary label">
+                                                        B parameter  
+                                                    </div>
+                                                </div>
+                                            </a>
+            
+                                            <a class=" item">
+                                                <i class="close icon middle aligned"></i>
+                                                <div class="content">
+                                                    <div class="ui teal label">
+                                                        Selected Data Attribute 
+                                                    </div>
+                                                    <div class="ui orange label">
+                                                        <= 
+                                                    </div>
+                                                    <div class="ui primary label">
+                                                        A parameter  
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            
+                                            <a class=" item">
+                                                <i class="close icon middle aligned"></i>
+                                                <div class="content">
+                                                    <div class="ui teal label">
+                                                        Selected Data Attribute 
+                                                    </div>
+                                                    <div class="ui orange label">
+                                                        Like 
+                                                    </div>
+                                                    <div class="ui primary label">
+                                                        %A parameter%
+                                                    </div>
+                                                </div>
+                                            </a>
+            
+                                            
+                                            <a class=" item">
+                                                <i class="close icon middle aligned"></i>
+                                                <div class="content">
+                                                    <div class="ui teal label">
+                                                        Selected Data Attribute 
+                                                    </div>
+                                                    <div class="ui orange label">
+                                                        In 
+                                                    </div>
+                                                    <div class="ui orange label">
+                                                        ( 
+                                                    </div>
+                                                    <div class="ui primary label">
+                                                        A parameter
+                                                    </div>
+                                                    <div class="ui primary label">
+                                                        B parameter
+                                                    </div>
+                                                    <div class="ui primary label">
+                                                        C parameter
+                                                    </div>
+                                                    <div class="ui primary label">
+                                                        D parameter
+                                                    </div>
+                                                    <div class="ui primary label">
+                                                        E parameter
+                                                    </div>
+                                                    <div class="ui orange label">
+                                                        )
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sixteen wide computer sixteen wide tablet sixteen wide mobile column scrolling content ui">
+                <div class="ui button secondary ">Add Data Set</div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui cancel button">Cancel</div>
+            <div class="ui button secondary ">Submit</div>
+        </div>
+    </div>
+
+</body>
+<script>
+    
+    function genDatabasecolumns(elm){
+        var dbColsTmp = dbCols;
+        var elmSelect = $(elm).children(".menu");
+        var output = "";
+        for(var i=0;i<dbColsTmp.length;i++){
+            if(i>=1){ output+=`<div class="divider"></div>`; }
+            output += `<div class="header">${dbColsTmp[i].table}</div>`;
+            for(var j=0;j<dbColsTmp[i].columns.length;j++){
+                output += `<div class="item">${dbColsTmp[i].columns[j].COLUMN_NAME}</div>`;
+            }
+        }
+        elmSelect.append(output);
+    }
+    function modalSidebar(){ 
+        $('.ui.modal .sidebar').sidebar({context:$('.ui.modal .contents')}).sidebar('toggle');
+    }
+    genDatabasecolumns($("#dbColumns-01"));
+    genDatabasecolumns($("#dbColumns-02"));
+    $('#dbColumns-01').dropdown({ onChange: function (val) {}});
+    $('#dbColumns-02').dropdown({ 
+        onChange: function (val) {}
+    });
+    $('#dataset-selection-01').dropdown({
+        allowAdditions:true
+    });
+    $(".fullscreen.modal").modal("show");
+    $('.ui.accordion').accordion();
+    $('.ui.checkbox').checkbox();
+    
+    $('#rangestart').calendar({
+        endCalendar: $('#rangeend')
+    });
+    $('#rangeend').calendar({
+        startCalendar: $('#rangestart')
+    });
+</script>
+</html>
